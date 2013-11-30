@@ -4,6 +4,7 @@ gem 'bundler'
 gem 'grape'
 gem 'json'
 gem 'puma'
+gem 'foreman'
 gem 'rake', :groups=>[:development, :test]
 gem 'rack-test', :group=>:test
 gem 'rspec', :group=>:test
