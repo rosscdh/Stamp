@@ -1,5 +1,5 @@
 require 'grape'
-require 'pdfkit'
+require './services'
 
 module Stamp
   class API < Grape::API
@@ -16,17 +16,14 @@ module Stamp
       post "/to/pdf" do
         html = params[:html]
         filename = params[:filename]
-        file_path = '/tmp/%s' % filename
 
-        kit = PDFKit.new(html, :page_size => 'Letter')
-        #file = kit.to_file(file_path)
+        service = Stamp::HTML2PDFService.new html, filename
 
         content_type "application/octet-stream"
         header['Content-Disposition'] = "attachment; filename=%s" % filename
         env['api.format'] = :binary
 
-        #body file.read
-        body kit.to_pdf
+        body service.as_inline_pdf
       end
     end
 
