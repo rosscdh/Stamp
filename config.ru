@@ -1,4 +1,4 @@
 require 'rack'
-require 'grape'
-require './Stamp'
+require './stamp'
+
 run Stamp::API
