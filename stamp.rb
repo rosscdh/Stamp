@@ -7,13 +7,14 @@ module Stamp
     version 'v1', using: :path
 
     resource :html do
-
       desc "Post HTML get PDF in response"
       params do
         requires :html, type: String, desc: "Raw HTML"
         requires :filename, type: String, desc: "Name of file to generate"
       end
       post "/to/pdf" do
+        header "Cache-Control", "no-cache, max-age=0"
+
         html = params[:html]
         filename = params[:filename]
 
