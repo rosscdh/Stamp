@@ -1,4 +1,4 @@
 require 'rack'
-require './stamp'
+require './lib/stamp'
 
 run Stamp::API

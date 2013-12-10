@@ -1,5 +1,5 @@
 require 'grape'
-require './services'
+require './lib/services'
 
 module Stamp
   class API < Grape::API

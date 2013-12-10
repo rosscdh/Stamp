@@ -4,9 +4,20 @@ gem 'bundler'
 gem 'grape'
 gem 'json'
 gem 'puma'
-gem 'foreman'
-gem 'rake', :groups=>[:development, :test]
-gem 'rack-test', :group=>:test
-gem 'rspec', :group=>:test
+
 gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
+
+#gem 'usps'
+#gem 'nokogiri'
+
+gem 'rake', :groups=>[:development, :test]
+
+group :dev do
+    gem 'foreman'
+end
+
+group :test do
+    gem 'rack-test', :group=>:test
+    gem 'rspec', :group=>:test
+end
